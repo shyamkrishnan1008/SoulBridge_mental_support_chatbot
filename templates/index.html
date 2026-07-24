@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoulBridge — Mental Wellness Companion</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f0ede8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
+      max-width: 680px;
+      background: #fff;
+      box-shadow: 0 0 40px rgba(0,0,0,0.1);
+    }
+
+    /* ── Header ── */
+    #header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: #fff;
+      border-bottom: 1px solid #ebebeb;
+      flex-shrink: 0;
+    }
+
+    #header-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7B6EE8, #534AB7);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(83,74,183,0.3);
+    }
+    #header-avatar i { font-size: 20px; color: #fff; }
+
+    #header-info { flex: 1; }
+    #header-info h1 { font-size: 16px; font-weight: 600; color: #1a1a1a; }
+    #header-info p  { font-size: 12px; color: #888; margin-top: 2px; }
+
+    #online-badge {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 12px; color: #639922;
+    }
+    #online-badge span {
+      width: 7px; height: 7px;
+      border-radius: 50%; background: #639922;
+    }
+
+    /* ── Messages area ── */
+    #messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      scroll-behavior: smooth;
+      background: #faf9f7;
+    }
+
+    .timestamp {
+      text-align: center;
+      font-size: 11px;
+      color: #bbb;
+      margin: 2px 0;
+    }
+
+    /* ── Message rows ── */
+    .msg-row { display: flex; align-items: flex-end; gap: 8px; }
+    .msg-row.user { flex-direction: row-reverse; }
+
+    .avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+    }
+    .avatar.bot  { background: #EEEDFE; color: #534AB7; }
+    .avatar.user { background: #E1F5EE; color: #0F6E56; }
+
+    .bubble-wrap { display: flex; flex-direction: column; max-width: 75%; }
+    .msg-row.user .bubble-wrap { align-items: flex-end; }
+
+    .emotion-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 5px; width: fit-content;
+    }
+
+    .bubble {
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.65;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
+    .bubble.bot {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-bottom-left-radius: 4px;
+      color: #1a1a1a;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .bubble.user {
+      background: #534AB7;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .bubble.crisis {
+      background: #FEF2EE;
+      border: 1px solid #F5A58A;
+      color: #4A1B0C;
+    }
+
+    /* ── Typing indicator ── */
+    .typing-row { display: flex; align-items: flex-end; gap: 8px; }
+    .typing-bubble {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 18px;
+      border-bottom-left-radius: 4px;
+      padding: 14px 18px;
+      display: flex; gap: 5px; align-items: center;
+    }
+    .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #bbb;
+      animation: bounce 1.2s ease infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%,60%,100% { transform: translateY(0); opacity: 0.4; }
+      30%          { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* ── Quick chips ── */
+    .chips-row {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 4px 0 4px 40px;
+    }
+    .chip {
+      font-size: 13px; padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      background: #fff; color: #555;
+      cursor: pointer; font-family: inherit;
+      transition: all 0.15s;
+    }
+    .chip:hover { background: #EEEDFE; color: #534AB7; border-color: #AFA9EC; }
+
+    /* ── Footer / Input ── */
+    #footer {
+      padding: 14px 16px 16px;
+      background: #fff;
+      border-top: 1px solid #ebebeb;
+      flex-shrink: 0;
+    }
+
+    #input-box {
+      display: flex; align-items: flex-end; gap: 10px;
+      background: #f4f3f0;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 24px;
+      padding: 10px 10px 10px 16px;
+      transition: border-color 0.15s;
+    }
+    #input-box:focus-within { border-color: #534AB7; }
+
+    #user-input {
+      flex: 1;
+      border: none; background: transparent; outline: none;
+      font-family: inherit; font-size: 14px; color: #1a1a1a;
+      resize: none; line-height: 1.5;
+      max-height: 120px; overflow-y: auto;
+    }
+    #user-input::placeholder { color: #bbb; }
+
+    #send-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%; border: none;
+      background: #534AB7; color: #fff;
+      cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, transform 0.1s;
+    }
+    #send-btn:hover  { background: #3C3489; }
+    #send-btn:active { transform: scale(0.94); }
+    #send-btn:disabled { background: #ccc; cursor: default; }
+    #send-btn i { font-size: 17px; }
+
+    #disclaimer {
+      text-align: center; font-size: 11px;
+      color: #bbb; margin-top: 10px;
+    }
+
+    /* ── Emotion colours ── */
+    .em-anxiety    { background:#FAECE7; color:#993C1D; }
+    .em-sadness    { background:#E6F1FB; color:#185FA5; }
+    .em-anger      { background:#FCEBEB; color:#A32D2D; }
+    .em-stress     { background:#FAEEDA; color:#854F0B; }
+    .em-loneliness { background:#EEEDFE; color:#534AB7; }
+    .em-happiness  { background:#EAF3DE; color:#3B6D11; }
+    .em-guilt      { background:#FBEAF0; color:#993556; }
+    .em-confusion  { background:#F1EFE8; color:#5F5E5A; }
+    .em-neutral    { background:#F1EFE8; color:#5F5E5A; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- Header -->
+  <div id="header">
+    <div id="header-avatar"><i class="ti ti-heart"></i></div>
+    <div id="header-info">
+      <h1>SoulBridge</h1>
+      <p>Mental Wellness Companion</p>
+    </div>
+    <div id="online-badge"><span></span> Online</div>
+  </div>
+
+  <!-- Messages -->
+  <div id="messages"></div>
+
+  <!-- Footer -->
+  <div id="footer">
+    <div id="input-box">
+      <textarea id="user-input" rows="1" placeholder="Share what's on your mind…"></textarea>
+      <button id="send-btn" disabled><i class="ti ti-send"></i></button>
+    </div>
+    <p id="disclaimer">Not a substitute for professional care &nbsp;·&nbsp; Crisis helpline: iCall 9152987821 &nbsp;·&nbsp; Emergency: 112</p>
+  </div>
+
+</div>
+
+<script>
+  const EMOTION_ICONS = {
+    anxiety:    'ti-wind',
+    sadness:    'ti-cloud-rain',
+    anger:      'ti-flame',
+    stress:     'ti-bolt',
+    loneliness: 'ti-user-off',
+    happiness:  'ti-sun',
+    guilt:      'ti-heart-broken',
+    confusion:  'ti-help-circle',
+    neutral:    'ti-circle',
+  };
+
+  const QUICK_PROMPTS = [
+    "I feel really anxious lately",
+    "I've been feeling very lonely",
+    "Work is overwhelming me",
+    "I'm struggling with low mood",
+    "I feel hopeless about the future",
+  ];
+
+  const messagesEl = document.getElementById('messages');
+  const inputEl    = document.getElementById('user-input');
+  const sendBtn    = document.getElementById('send-btn');
+  let isLoading = false;
+
+  // ── Helpers ─────────────────────────────────────────────────────────────────
+  function getTime() {
+    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function scrollDown() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addTimestamp(label) {
+    const el = document.createElement('div');
+    el.className = 'timestamp';
+    el.textContent = label;
+    messagesEl.appendChild(el);
+    scrollDown();
+  }
+
+  function addMessage(text, role, emotion, isCrisis) {
+    const row = document.createElement('div');
+    row.className = `msg-row ${role}`;
+
+    // Avatar
+    const av = document.createElement('div');
+    av.className = `avatar ${role}`;
+    av.innerHTML = role === 'bot'
+      ? '<i class="ti ti-heart"></i>'
+      : '<i class="ti ti-user"></i>';
+
+    // Bubble wrapper
+    const wrap = document.createElement('div');
+    wrap.className = 'bubble-wrap';
+
+    // Emotion chip (bot only)
+    if (role === 'bot' && emotion && emotion !== 'neutral') {
+      const icon = EMOTION_ICONS[emotion] || 'ti-circle';
+      const chip = document.createElement('div');
+      chip.className = `emotion-chip em-${emotion}`;
+      chip.innerHTML = `<i class="ti ${icon}"></i> ${emotion}`;
+      wrap.appendChild(chip);
+    }
+
+    // Bubble
+    const bubble = document.createElement('div');
+    bubble.className = `bubble ${role}${isCrisis ? ' crisis' : ''}`;
+    bubble.textContent = text;
+    wrap.appendChild(bubble);
+
+    if (role === 'bot') { row.appendChild(av); row.appendChild(wrap); }
+    else                { row.appendChild(wrap); row.appendChild(av); }
+
+    messagesEl.appendChild(row);
+    scrollDown();
+  }
+
+  function showTyping() {
+    const row = document.createElement('div');
+    row.className = 'typing-row'; row.id = 'typing';
+    const av = document.createElement('div');
+    av.className = 'avatar bot';
+    av.innerHTML = '<i class="ti ti-heart"></i>';
+    const bub = document.createElement('div');
+    bub.className = 'typing-bubble';
+    bub.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+    row.appendChild(av); row.appendChild(bub);
+    messagesEl.appendChild(row);
+    scrollDown();
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('typing');
+    if (el) el.remove();
+  }
+
+  function showQuickChips() {
+    if (document.getElementById('chips')) return;
+    const row = document.createElement('div');
+    row.className = 'chips-row'; row.id = 'chips';
+    QUICK_PROMPTS.forEach(p => {
+      const btn = document.createElement('button');
+      btn.className = 'chip'; btn.textContent = p;
+      btn.onclick = () => { inputEl.value = p; row.remove(); handleSend(); };
+      row.appendChild(btn);
+    });
+    messagesEl.appendChild(row);
+    scrollDown();
+  }
+
+  // ── Send message ─────────────────────────────────────────────────────────────
+  async function handleSend() {
+    const text = inputEl.value.trim();
+    if (!text || isLoading) return;
+
+    const chips = document.getElementById('chips');
+    if (chips) chips.remove();
+
+    isLoading = true;
+    sendBtn.disabled = true;
+    inputEl.value = '';
+    inputEl.style.height = 'auto';
+
+    addMessage(text, 'user', null, false);
+    addTimestamp(getTime());
+    showTyping();
+
+    try {
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text }),
+      });
+
+      const data = await res.json();
+      removeTyping();
+      addMessage(data.response, 'bot', data.emotion, data.is_crisis);
+      addTimestamp(getTime());
+
+    } catch (err) {
+      removeTyping();
+      addMessage(
+        "Something went wrong. Please make sure the server is running and try again.",
+        'bot', 'neutral', false
+      );
+    }
+
+    isLoading = false;
+    sendBtn.disabled = inputEl.value.trim() === '';
+    inputEl.focus();
+  }
+
+  // ── Input events ──────────────────────────────────────────────────────────────
+  inputEl.addEventListener('input', () => {
+    inputEl.style.height = 'auto';
+    inputEl.style.height = Math.min(inputEl.scrollHeight, 120) + 'px';
+    sendBtn.disabled = inputEl.value.trim() === '' || isLoading;
+  });
+
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+  });
+
+  sendBtn.addEventListener('click', handleSend);
+
+  // ── Init ──────────────────────────────────────────────────────────────────────
+  addTimestamp('Today ' + getTime());
+  addMessage(
+    "Hello! 👋 I'm SoulBridge, your mental wellness companion.\n\nThis is a safe, judgment-free space. You can share anything you're feeling — anxiety, stress, sadness, or just the weight of an ordinary day.\n\nHow are you feeling today?",
+    'bot', null, false
+  );
+  setTimeout(showQuickChips, 400);
+</script>
+</body>
+</html>

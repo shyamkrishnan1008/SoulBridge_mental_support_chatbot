@@ -1,0 +1,208 @@
+{
+  "conversations": [
+    {
+      "id": 1,
+      "question": "I feel so anxious all the time and I don't know why",
+      "emotion": "anxiety",
+      "intent": "seeking_support",
+      "response": "It sounds like you're carrying a heavy burden of anxiety. It's completely okay to feel this way, and you're not alone. Many people experience anxiety without a clear reason — it can come from our nervous system being on high alert. Have you noticed any situations that seem to make it worse? Sometimes identifying triggers can be a helpful first step. Would you like to talk more about what you've been experiencing?",
+      "keywords": ["anxious", "anxiety", "nervous", "worried", "fear", "panic", "uneasy"]
+    },
+    {
+      "id": 2,
+      "question": "I'm feeling really sad and don't know what to do",
+      "emotion": "sadness",
+      "intent": "seeking_support",
+      "response": "I'm really sorry to hear you're feeling this way. Sadness can feel overwhelming and isolating, but please know that what you're feeling is valid. It's okay to sit with these feelings for a moment. Is there something specific that's been weighing on your heart, or does it feel more like a general heaviness? I'm here to listen and support you.",
+      "keywords": ["sad", "sadness", "unhappy", "depressed", "down", "low", "blue", "miserable"]
+    },
+    {
+      "id": 3,
+      "question": "I feel so lonely and isolated from everyone",
+      "emotion": "loneliness",
+      "intent": "seeking_connection",
+      "response": "Loneliness can be one of the most painful feelings to sit with. Even when we're surrounded by people, we can feel deeply alone — and that's a very human experience. Your feelings make complete sense. Connection matters deeply to us. Would it help to talk about what's been making you feel disconnected? Sometimes just sharing can ease that weight a little.",
+      "keywords": ["lonely", "alone", "isolated", "disconnected", "no one", "nobody", "solitary"]
+    },
+    {
+      "id": 4,
+      "question": "I'm so stressed out about work and everything feels overwhelming",
+      "emotion": "stress",
+      "intent": "venting",
+      "response": "It sounds like you're under a tremendous amount of pressure right now. Work stress can spill into every corner of your life and make everything feel impossible to manage. That feeling of overwhelm is your mind and body telling you they need some relief. You deserve support. Would it help to talk through what's piling up, or would you like some gentle strategies that might ease the load?",
+      "keywords": ["stressed", "stress", "overwhelmed", "overloaded", "pressure", "burned out", "exhausted", "too much"]
+    },
+    {
+      "id": 5,
+      "question": "I'm so angry and frustrated, I don't know how to control it",
+      "emotion": "anger",
+      "intent": "seeking_coping",
+      "response": "Anger is a completely valid and natural emotion — it often shows up when something important to us feels threatened or unjust. The fact that you're aware of it and wanting to understand it better is already a powerful step. Would you like to share what's been triggering this anger? Sometimes naming the root cause can help us start to process and release it in healthier ways.",
+      "keywords": ["angry", "anger", "frustrated", "furious", "rage", "irritated", "mad", "fuming"]
+    },
+    {
+      "id": 6,
+      "question": "I can't sleep and my mind won't stop racing",
+      "emotion": "anxiety",
+      "intent": "seeking_help",
+      "response": "A racing mind at night can be exhausting and frightening. When we can't quiet our thoughts, it often means our mind is processing a lot — worries, unresolved emotions, or future fears. You're not broken; your mind is trying to protect you, but it's overdoing it. Some people find deep breathing, journaling before bed, or a simple body scan helpful. Would you like to explore what thoughts tend to surface most at night?",
+      "keywords": ["can't sleep", "insomnia", "racing mind", "sleepless", "awake", "overthinking", "nighttime"]
+    },
+    {
+      "id": 7,
+      "question": "I feel like I'm not good enough and everyone is better than me",
+      "emotion": "sadness",
+      "intent": "low_self_esteem",
+      "response": "Those feelings of not being 'enough' are incredibly common, and I want you to know — they're not the truth. Our inner critic can be relentlessly harsh, measuring us against others in ways that are deeply unfair to ourselves. You have worth that isn't defined by comparison. Can you tell me more about when these feelings tend to come up? I'd love to help you explore where they might be coming from.",
+      "keywords": ["not good enough", "worthless", "inferior", "failure", "inadequate", "not enough", "comparing"]
+    },
+    {
+      "id": 8,
+      "question": "I've been having panic attacks and they're really scary",
+      "emotion": "anxiety",
+      "intent": "seeking_help",
+      "response": "Panic attacks can be truly terrifying, especially when they come unexpectedly. Your body is going into a kind of alarm mode, even when there's no real danger — and that physical intensity can feel life-threatening. You're safe, even when it doesn't feel that way. Grounding techniques — like focusing on five things you can see, four you can touch — can help in the moment. Would you like to talk about what tends to trigger them for you?",
+      "keywords": ["panic attack", "panic", "heart racing", "can't breathe", "dizzy", "terror", "overwhelming fear"]
+    },
+    {
+      "id": 9,
+      "question": "I feel happy today but I don't want it to go away",
+      "emotion": "happiness",
+      "intent": "positive_sharing",
+      "response": "That's wonderful to hear! It's beautiful that you're savoring this feeling of happiness. One of the kindest things we can do for ourselves is notice and fully experience moments of joy when they arise. You might try grounding yourself in the present — what's making today feel good? Holding onto the memory of these feelings can also help us through harder times.",
+      "keywords": ["happy", "happiness", "joyful", "good mood", "great", "wonderful", "content", "excited"]
+    },
+    {
+      "id": 10,
+      "question": "I feel like nobody understands me",
+      "emotion": "loneliness",
+      "intent": "seeking_connection",
+      "response": "Feeling misunderstood is a deep kind of loneliness, and it can be really painful. It doesn't mean something is wrong with you — it often means the people around us haven't fully seen you yet, or communication hasn't fully bridged the gap. You deserve to be understood. Would you like to share more about what feels most misunderstood about you? I'm genuinely here to listen.",
+      "keywords": ["misunderstood", "nobody understands", "not understood", "alone in feelings", "can't relate"]
+    },
+    {
+      "id": 11,
+      "question": "I feel hopeless about the future",
+      "emotion": "sadness",
+      "intent": "seeking_support",
+      "response": "Feeling hopeless about the future is one of the heaviest burdens a person can carry. When hope dims, everything can feel pointless — and that's an incredibly painful place to be. Please know that hopelessness is often a signal that we need more support, not a reflection of reality. You reached out today, and that took courage. Would you feel comfortable sharing what's making the future feel so bleak right now?",
+      "keywords": ["hopeless", "no hope", "pointless", "what's the point", "nothing matters", "future is bleak"]
+    },
+    {
+      "id": 12,
+      "question": "I've been feeling really depressed lately",
+      "emotion": "sadness",
+      "intent": "seeking_support",
+      "response": "Thank you for trusting me with this. Depression is a serious and real condition, and it takes real courage to acknowledge it. It can make even small daily tasks feel monumental, and it can color everything gray. You are not weak for feeling this way — depression is not a character flaw. It's okay to ask for help. Have you been able to talk to anyone else about this, like a therapist or doctor? I'm here to support you too.",
+      "keywords": ["depressed", "depression", "very sad", "numb", "empty", "lost interest", "no motivation"]
+    },
+    {
+      "id": 13,
+      "question": "I'm having trouble with my relationships and feel disconnected from people I love",
+      "emotion": "loneliness",
+      "intent": "relationship_support",
+      "response": "Relationship struggles can be deeply painful, especially when they involve people we love. Feeling disconnected from those who matter most can leave us feeling alone even in a crowd. Relationships often go through seasons of distance, and sometimes communication, unmet needs, or life stress can create unintentional rifts. Would you like to talk about what's been happening? Understanding the pattern can be a powerful first step.",
+      "keywords": ["relationship problems", "disconnected", "loved ones", "family", "friends", "partner", "drifting apart"]
+    },
+    {
+      "id": 14,
+      "question": "I feel burned out and exhausted from everything",
+      "emotion": "stress",
+      "intent": "seeking_relief",
+      "response": "Burnout is real, and what you're feeling is your mind and body's way of saying 'I need rest and recovery.' It can sneak up on us after long periods of giving everything we have without replenishing. You matter — and your wellbeing is not less important than your responsibilities. Gentleness with yourself is not weakness; it's essential right now. What does your typical day look like? Sometimes even small changes can start to relieve the pressure.",
+      "keywords": ["burned out", "burnout", "exhausted", "drained", "tired of everything", "no energy", "depleted"]
+    },
+    {
+      "id": 15,
+      "question": "I don't know how to cope with my grief",
+      "emotion": "sadness",
+      "intent": "grief_support",
+      "response": "Grief is love with nowhere to go, and it is one of the most profound and painful human experiences. There is no right way to grieve, and no timeline for healing. Please be gentle with yourself. Your loss matters, and so do your feelings — even when they're messy or contradictory. I'm deeply sorry for what you're going through. Would you like to tell me about the person or thing you've lost? Sometimes sharing memories can be a gentle comfort.",
+      "keywords": ["grief", "grieving", "loss", "lost someone", "bereavement", "mourning", "miss them", "died"]
+    },
+    {
+      "id": 16,
+      "question": "I feel like I have no purpose or meaning in my life",
+      "emotion": "sadness",
+      "intent": "existential_support",
+      "response": "Searching for meaning is one of the deepest human needs, and when we feel that absence, it can create a profound emptiness. This isn't a sign that something is irreparably wrong — many people go through periods where meaning feels lost or unclear. Purpose is often found, not given, and it can shift throughout our lives. What are some things you've cared about in the past, even small things? That might be a gentle place to start exploring.",
+      "keywords": ["no purpose", "meaningless", "no direction", "lost", "what's the point", "no goals", "empty life"]
+    },
+    {
+      "id": 17,
+      "question": "I feel guilty about something I did and can't forgive myself",
+      "emotion": "sadness",
+      "intent": "seeking_forgiveness",
+      "response": "Guilt can be a relentless companion, and the inability to forgive ourselves can be a very heavy burden to carry. It often means you have a conscience, that you care deeply — and that's a meaningful quality. But self-compassion is not about excusing what happened; it's about acknowledging your humanity and allowing yourself the grace to grow. Would you like to talk about what you're carrying? You don't have to hold it alone.",
+      "keywords": ["guilty", "guilt", "can't forgive myself", "regret", "shame", "did something wrong", "made a mistake"]
+    },
+    {
+      "id": 18,
+      "question": "I'm worried about my mental health and don't know if I should seek help",
+      "emotion": "anxiety",
+      "intent": "help_seeking",
+      "response": "The fact that you're asking this question shows incredible self-awareness and courage. If you're questioning your mental health, that's already a meaningful sign that support could be helpful. Seeking help is not a sign of weakness — it's one of the strongest things a person can do. A therapist, counselor, or even your GP can be a great starting point. What's been making you worry about your mental health? You can share as little or as much as you'd like.",
+      "keywords": ["mental health", "seek help", "therapy", "therapist", "should I see someone", "professional help"]
+    },
+    {
+      "id": 19,
+      "question": "I feel overwhelmed by negative thoughts",
+      "emotion": "anxiety",
+      "intent": "seeking_coping",
+      "response": "Negative thoughts can feel like a relentless current pulling us under, and it's exhausting to fight them constantly. Our minds are wired to notice threats — but sometimes that system gets stuck in overdrive. You don't have to believe every thought your mind produces. One gentle technique is to observe thoughts without judgment: 'I notice I'm having the thought that...' This creates a little distance. Would you like to explore some strategies that might help quiet the noise?",
+      "keywords": ["negative thoughts", "dark thoughts", "intrusive thoughts", "can't stop thinking", "bad thoughts", "mind won't stop"]
+    },
+    {
+      "id": 20,
+      "question": "I feel scared and don't know what's wrong with me",
+      "emotion": "anxiety",
+      "intent": "seeking_reassurance",
+      "response": "Feeling scared without knowing why can be one of the most unsettling experiences — it can make us feel like something is deeply wrong. But feeling this way doesn't mean you're broken or that something terrible is happening. Fear and anxiety often arise even in the absence of obvious danger. You are safe in this moment. Can you describe the feeling a bit more? Is it in your body, your thoughts, or both? I want to help you make sense of what you're experiencing.",
+      "keywords": ["scared", "frightened", "afraid", "something wrong with me", "don't know what's happening", "confused about feelings"]
+    },
+    {
+      "id": 21,
+      "question": "I feel like I'm failing at everything",
+      "emotion": "sadness",
+      "intent": "low_self_esteem",
+      "response": "The feeling of failing at everything is incredibly painful, and I want you to know that feeling doesn't make it true. Our perception of failure is often distorted when we're struggling — we minimize our wins and magnify our setbacks. You are not your mistakes, and one difficult period doesn't define your worth or capability. What specifically feels like a failure right now? Sometimes looking closer, we find the evidence doesn't match the feeling.",
+      "keywords": ["failing", "failure", "can't do anything right", "everything goes wrong", "mess everything up", "loser"]
+    },
+    {
+      "id": 22,
+      "question": "I feel restless and can't concentrate on anything",
+      "emotion": "anxiety",
+      "intent": "seeking_help",
+      "response": "Restlessness and difficulty concentrating often go hand in hand — when our nervous system is activated, it becomes very hard to settle into any task. This isn't laziness or weakness; it's your mind and body responding to something. Have you been under extra stress lately, or has this restlessness been building for a while? Gentle movement, structured breaks, or even just stepping outside can sometimes help settle that buzzing energy.",
+      "keywords": ["restless", "can't concentrate", "unfocused", "distracted", "can't sit still", "fidgety", "scattered"]
+    },
+    {
+      "id": 23,
+      "question": "I don't enjoy things I used to love anymore",
+      "emotion": "sadness",
+      "intent": "seeking_support",
+      "response": "Losing interest in things that once brought joy — called anhedonia — can be one of the most disorienting parts of depression and emotional burnout. It can feel like you've lost a part of yourself. Please know that this feeling, as permanent as it seems, is usually a signal that your wellbeing needs attention and care. Would you like to share what activities you used to enjoy? Sometimes gently revisiting them — without pressure — can be a soft path back.",
+      "keywords": ["don't enjoy", "lost interest", "no pleasure", "nothing fun", "hobbies feel pointless", "used to love"]
+    },
+    {
+      "id": 24,
+      "question": "I feel like a burden to everyone around me",
+      "emotion": "sadness",
+      "intent": "seeking_reassurance",
+      "response": "Feeling like a burden is a particularly painful thought, and I want you to hear clearly: the people who love you would not want you to carry that belief. This feeling is very common, especially during depression or difficult times — but it is a distortion, not a fact. You matter to those around you more than you know. Would you feel comfortable sharing what's been making you feel this way? You are not a burden for struggling.",
+      "keywords": ["burden", "burden to others", "don't want to bother", "in the way", "better off without me", "cause problems"]
+    },
+    {
+      "id": 25,
+      "question": "I'm struggling with my self-worth and self-image",
+      "emotion": "sadness",
+      "intent": "low_self_esteem",
+      "response": "Struggling with self-worth is something so many people experience, often silently. Our self-image is shaped by so many things — past experiences, comparisons, critical voices we've internalized. But your worth is inherent. It doesn't depend on your productivity, appearance, or what others think. Rebuilding self-worth takes time and gentleness. I'd love to understand more about where these feelings come from for you — when did you start feeling this way?",
+      "keywords": ["self-worth", "self-image", "self-esteem", "don't like myself", "insecure", "not enough", "worthless"]
+    }
+  ],
+  "crisis_responses": {
+    "immediate": "I'm really concerned about your safety right now, and I want you to know that your life has value. Please reach out immediately to a crisis helpline: iCall (India): 9152987821 | Vandrevala Foundation: 1860-2662-345 (24/7) | International Association for Suicide Prevention: https://www.iasp.info/resources/Crisis_Centres/",
+    "followup": "You don't have to face this alone. Please talk to someone who can help right now."
+  }
+}
