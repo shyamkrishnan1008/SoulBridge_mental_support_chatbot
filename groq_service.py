@@ -12,7 +12,7 @@ from groq import Groq
 # =====================================================
 # CHANGE THIS TO YOUR API KEY
 # =====================================================
-GROQ_API_KEY = "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"
+GROQ_API_KEY = ""
 
 MODEL_NAME = "llama-3.3-70b-versatile"
 
